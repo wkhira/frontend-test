@@ -1,19 +1,31 @@
 <!doctype html>
 <html lang="pt-br">
+
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
 	<title>R7 FrontEnd Test</title>
 	<!--build:css css/index.min.css-->
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/style.css">
 	<!--endbuild-->
 </head>
-<body>
 
+<body>
+	<div class="container-page">
+		<img class="logo" src="../galo.jpg" tabindex="0" alt="Logo do programa a fazenda." />
+		<div class="grid-ranking">
+			<div class="header-ranking" role="banner">
+				<h1 tabindex='0'>Ranking</h1>
+			</div>
+			<ul class="list-ranking" tabindex="0" aria-label="Lista dos participantes de, A fazenda."></ul>
+		</div>
+	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<!--build:js js/index.min.js-->
 	<script src="js/main.js"></script>
 	<!-- endbuild -->
 </body>
+
 </html>

@@ -1,0 +1,105 @@
+/* Colors */
+body {
+  font-size: 62.5%;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #272727; }
+
+.link-r7 {
+  position: relative;
+  color: #f4f4f4;
+  margin: 15px; }
+  .link-r7 a {
+    color: #f4f4f4;
+    font-weight: bold;
+    text-decoration: none; }
+
+.ranking-container {
+  position: relative;
+  margin: 0 auto;
+  width: 342px;
+  max-width: 342px; }
+
+.ranking-header {
+  height: 52px;
+  margin-top: 140px;
+  margin-left: 60px;
+  background-color: #f4f4f4; }
+  .ranking-header h1 {
+    margin-left: 120px;
+    margin-top: -50px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.2rem; }
+
+.logo {
+  margin-top: -128px;
+  margin-left: -90px; }
+
+.ranking-list {
+  margin-top: 20px; }
+  .ranking-list-item {
+    padding-top: 1px;
+    padding-bottom: 1px; }
+    .ranking-list-item:nth-child(odd) {
+      background-color: #f4f4f4; }
+    .ranking-list-item:nth-child(even) {
+      background-color: #e6e6e6; }
+
+.item-profile-container {
+  margin: 10px 20px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden; }
+
+.selected-border {
+  border: 5px #f4f4f4 solid; }
+
+.unselected-border {
+  border: 5px #ba3638 solid; }
+
+.item-profile-img {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover; }
+
+.item-profile-idx {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 22px;
+  margin-top: 55px;
+  margin-left: -15px;
+  border: 1px #707070 solid;
+  font-weight: 600;
+  color: #707070;
+  font-size: 1.5em;
+  background-color: #f4f4f4; }
+
+.item-text {
+  position: absolute;
+  display: table-column-group;
+  width: 70%;
+  height: 90px;
+  left: 103px;
+  margin-top: -95px; }
+  .item-text-name {
+    position: absolute;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-left: 15px;
+    font-size: 1.6em;
+    text-align: left;
+    color: #ba3638; }
+  .item-text-description {
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 15px;
+    font-weight: 600;
+    text-align: left;
+    color: #707070; }

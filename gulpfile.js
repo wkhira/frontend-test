@@ -96,6 +96,22 @@ function css() {
 }
 exports.css = css;
 
+/* CSS Lint */
+function cssLint() {
+	return gulp.src('src/css/*.css')
+	.pipe(csslint())
+	.pipe(csslint.formatter());	
+}
+exports.cssLint = cssLint;
+
+/* Js Hint */
+function jsHint() {
+	return gulp.src('src/js/*.js')
+	.pipe(jshint())
+	.pipe(jshint.reporter(jshintStylish));
+}
+exports.jsHint = jsHint;
+
 /* Browser Sync */
 function server(done) {
 	browserSync.init({
@@ -112,17 +128,9 @@ function server(done) {
 function watch(done) {
 	gulp.watch('src/scss/*.scss', css);
 
-	gulp.watch('src/js/*.js').on('change', function (event) {
-		gulp.src(event.path)
-			.pipe(jshint())
-			.pipe(jshint.reporter(jshintStylish));
-	});
+	gulp.watch('src/js/*.js').on('change', jsHint);
 
-	gulp.watch('src/css/*.css').on('change', function (event) {
-		gulp.src(event.path)
-			.pipe(csslint())
-			.pipe(csslint.formatter());
-	});
+	gulp.watch('src/css/*.css').on('change', cssLint);
 
 	gulp.watch('src/**/*').on('change', browserSync.reload);
 

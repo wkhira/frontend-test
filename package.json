@@ -2,12 +2,14 @@
   "name": "R7FrontendTest",
   "version": "0.0.1",
   "scripts": {
-    "gulp": "gulp"
+    "gulp": "gulp",
+    "test": "jest"
   },
   "author": "Willian Hira",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.18.12",
+    "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-clean": "^0.3.2",
@@ -18,16 +20,19 @@
     "gulp-imagemin": "^7.1.0",
     "gulp-inline-source": "^4.0.0",
     "gulp-jest": "^4.0.3",
-    "gulp-jshint": "^2.0.4",
+    "gulp-jshint": "^2.1.0",
     "gulp-load-plugins": "^1.5.0",
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-ruby-sass": "^2.1.1",
     "gulp-sass": "^3.1.0",
     "gulp-sequence": "^0.4.6",
+    "gulp-strip-code": "^0.1.4",
+    "gulp-terser": "^1.2.0",
     "gulp-uglify": "^3.0.0",
     "gulp-useref": "^3.1.2",
     "gulp-version-number": "^0.2.4",
+    "jest": "^25.1.0",
     "jest-cli": "^25.1.0",
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1"

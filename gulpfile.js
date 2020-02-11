@@ -7,14 +7,10 @@ var autoprefixer = require('gulp-autoprefixer');
 var jshint = require('gulp-jshint');
 var jshintStylish = require('jshint-stylish');
 var csslint = require('gulp-csslint');
-var jest = require('gulp-jest').default;
+var terser = require('gulp-terser');
+var stripCode = require('gulp-strip-code');
+var del = require('del');
 
-const JEST_CONFIG = {
-	"preprocessorIgnorePatterns": [
-		"<rootDir>/dist/", "<rootDir>/node_modules/"
-	],
-	"automock": false
-}
 const VERSION_CONFIG = {
 	'value': '%MDS%',
 	'append': {
@@ -23,14 +19,16 @@ const VERSION_CONFIG = {
 	},
 };
 
+function testJs() {
+	return gulp.src('src/**/*.js')
+	.pipe($.stripCode({ start_comment: "start-test-block", end_comment: "end-test-block" }))
+	.pipe(gulp.dest('doc/'));
+}
+exports.testjs = testJs
+
 /* Clean Dist */
 function clear() {
-	return gulp.src('dist/*', { read: false })
-	.pipe($.clean())
-	.pipe(gulp.dest('dist/css'))
-	.pipe(gulp.dest('dist/js'))
-	.pipe(gulp.dest('dist/assets'))
-	.pipe(gulp.dest('dist/assets/img'));	
+	return del(['dist/**', '!dist/css', '!dist/js', '!dist/assets', '!dist/assets/img']);
 }
 exports.clear = clear;
 exports.wipe = clear;
@@ -38,7 +36,7 @@ exports.wipe = clear;
 /* Minifies Solo*/
 function minifyJs() {
 	return gulp.src('src/**/*.js')
-		.pipe($.uglify())
+		.pipe($.terser())
 		.pipe($.versionNumber(VERSION_CONFIG))
 		.pipe(gulp.dest('dist/'));
 }
@@ -79,7 +77,8 @@ function userefConcat() {
 	.pipe($.useref())
 	.pipe($.if('*.html', $.inlineSource()))
 	.pipe($.if('*.html', $.htmlmin({ collapseWhitespace: true })))
-	.pipe($.if('*.js', $.uglify()))
+	.pipe($.if('*.js', $.stripCode({ start_comment: "start-test-block", end_comment: "end-test-block" })))
+	.pipe($.if('*.js', $.terser()))
 	.pipe($.if('*.css', $.cssnano({ safe: true })))
 	.pipe($.versionNumber(VERSION_CONFIG))
 	.pipe(gulp.dest('dist'));
@@ -136,14 +135,6 @@ function watch(done) {
 
 	done();
 }
-
-/* Tests */
-function tests() {
-	// process.env.NODE_ENV = 'test';
-	return gulp.src('__tests__')
-		.pipe(jest(JEST_CONFIG));
-}
-exports.tests = tests;
 
 /* Default Task */
 exports.default = gulp.series(css, server, watch);

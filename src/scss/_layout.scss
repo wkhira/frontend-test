@@ -1,0 +1,92 @@
+.link-r7 {
+	position: relative;
+	color: $white;
+	margin: 15px;
+	min-width: 130px;
+
+	a {
+		color: $white;
+		font-weight: bold;
+		text-decoration: none;
+	}
+}
+
+.ranking-container {
+	position: relative;
+	margin: 0 auto;
+	width:342px;
+	max-width:342px;
+
+	nav {
+		cursor: pointer;
+	}
+}
+
+.ranking-header {
+	height: 52px;
+	margin-top: 140px;
+	margin-left: 60px;
+	background-color:$white;
+
+	h1 {
+		margin-left: 120px;
+		margin-top: -50px;
+		font-size: 1.8rem;
+		font-weight: 700;
+		letter-spacing: -0.2rem;
+	}
+
+	.logo {
+		margin-top: -128px;
+		margin-left: -90px;
+	}
+}
+
+.ranking-list {
+	margin-top: 20px;
+
+	&-item {
+		position: relative;
+		padding-top: 1px;
+		padding-bottom: 1px;
+		
+		&:nth-child(odd) {
+			background-color: $white;
+		}
+
+		&:nth-child(even) {
+			background-color: $ltgrey;
+		}
+
+		&:hover, &:focus {
+			background-color: $red;
+
+			& .item-profile-container {
+				border: 5px $white solid;
+			}
+
+			& .item-text-name {
+				color: $white;
+			}
+
+			& .item-text-description {
+				color: $black;
+			}
+
+			& .item-tooltip {
+				display: block;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 402px) {
+	.ranking-header {
+		.logo {
+			margin-left: -60px;
+		}
+		h1 {
+			margin-left: 138px;
+		}
+	}
+}

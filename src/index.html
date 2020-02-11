@@ -3,9 +3,10 @@
 
 <head>
 	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width">
 	<title>R7 FrontEnd Test</title>
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800,900&display=swap" rel="stylesheet"> 
 	<!--build:css css/index.min.css-->
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/style.css">
@@ -14,15 +15,15 @@
 
 <body>
 	<header>
-		<p class="link-r7">front-end test - <a href="https://www.r7.com/">r7.com</a> ©</p>
+		<p class="link-r7" aria-label="Link para o portal do R7">front-end test - <a href="https://www.r7.com/">r7.com</a> ©</p>
 	</header>
 	<main class="ranking-container">
 		<header class="ranking-header">
 			<img class="logo" src="./assets/img/a-fazenda-logo.png" tabindex="0" alt="A Fazenda Logo" />
-			<h1 tabindex="0">RANKING</h1>
+			<h1 tabindex="0" aria-label="Ranking da classificação dos participantes do programa A Fazenda por votos recebidos.">RANKING</h1>
 		</header>
 		<nav>
-			<ul class="ranking-list" tabindex="0" aria-label="Lista de votos recebidos dos participantes do programa A Fazenda."></ul>
+			<ul class="ranking-list"></ul>
 		</nav>
 	</main>
 	<!--[if lt IE 9]>
@@ -30,6 +31,7 @@
     <![endif]-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<!--build:js js/index.min.js-->
+	<script tyep="module" src="js/scripts.js"></script>
 	<script src="js/main.js"></script>
 	<!-- endbuild -->
 </body>
